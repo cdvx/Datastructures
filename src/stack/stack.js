@@ -4,9 +4,13 @@ let stack = function () {
     function push(item) {
         items.push(item)
     }
+    function pop(item){
+        return items.pop(item)
+    }
     return Object.freeze({
         push,
-        items
+        items,
+        pop
     })
 }
 
