@@ -12,11 +12,15 @@ let stack = function () {
         items = items.slice(1)
         return shifted
     }
+    function unshift(item){
+        items.unshift(item)
+    }
     return Object.freeze({
         push,
         items,
         pop,
-        shift
+        shift,
+        unshift
     })
 }
 
