@@ -21,7 +21,7 @@ describe('Stack Interface tests', () => {
         expect(popped).to.be.equal('Cedric')
         expect(_stack.items.length).to.be.equal(1)
     })
-    it('Test that shift removes item to bottom of stack', () => {
+    it('Test that shift removes item from bottom of stack', () => {
         let _stack = new Stack()
         _stack.push('Xstate')
         _stack.push('Lusiba')
@@ -30,5 +30,14 @@ describe('Stack Interface tests', () => {
         let shifted = _stack.shift()
         expect(shifted).to.be.equal('Xstate')
         expect(_stack.items.length).to.be.equal(3)
+    })
+    it('Test that unshift adds item to bottom of stack', () => {
+        let _stack = new Stack()
+        _stack.push('Xstate')
+        _stack.push('Lusiba')
+        _stack.push('Cedric')
+        let un_shifted = _stack.unshift('Xstate')
+        expect(un_shifted).to.be.equal('Xstate')
+        expect(_stack.items.length).to.be.equal(2)
     })
 })
