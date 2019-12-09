@@ -7,6 +7,7 @@ let stack = function () {
     function pop(item){
         return items.pop(item)
     }
+
     return Object.freeze({
         push,
         items,
