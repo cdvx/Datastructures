@@ -1,9 +1,14 @@
 let queue = function () {
 
-    let queueItems = []
+    let items = []
+
+    function enqueue(item){
+        return items.push(item)
+    }
     
     return Object.freeze({
-        queueItems
+        items,
+        enqueue
     })
 }
 

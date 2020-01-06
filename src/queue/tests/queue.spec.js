@@ -8,5 +8,12 @@ describe('Queue Interface tests', () => {
         let queue = new Queue()
         expect(queue).to.be.frozen
     })
+    it('Test enqueue adds to the end of the queue', () => {
+        let queue = new Queue()
+        queue.enqueue('Cedric')
+        queue.enqueue('Lusiba')
+        expect(queue.items[0]).to.be.equal('Cedric')
+        expect(queue.items[1]).to.be.equal('Lusiba')
+    })
     
 })
