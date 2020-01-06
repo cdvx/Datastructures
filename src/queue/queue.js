@@ -5,10 +5,14 @@ let queue = function () {
     function enqueue(item){
         return items.push(item)
     }
+    function dequeue(){
+        return items.shift()
+    }
     
     return Object.freeze({
         items,
-        enqueue
+        enqueue,
+        dequeue
     })
 }
 

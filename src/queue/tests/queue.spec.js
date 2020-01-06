@@ -15,5 +15,12 @@ describe('Queue Interface tests', () => {
         expect(queue.items[0]).to.be.equal('Cedric')
         expect(queue.items[1]).to.be.equal('Lusiba')
     })
+    it('Test dequeue removes from top of queue', () => {
+        let queue = new Queue()
+        queue.enqueue('Cedric')
+        queue.enqueue('Lusiba')
+        let item  =  queue.dequeue();
+        expect(item).to.be.equal('Cedric')
+    })
     
 })
