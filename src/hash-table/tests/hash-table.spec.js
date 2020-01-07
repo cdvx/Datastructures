@@ -14,4 +14,11 @@ describe('Hashtable Interface tests', () => {
         expect(hashtable.table.length).to.be.equal(137)
     })
 
+    it('Test that put adds value to table with unique key', ()=> {
+        let hashtable = new HashTable()
+        hashtable.put('first', 100)
+        expect(hashtable.table[hashtable.hash('first')]).to.be.equal('first')
+        expect(hashtable.values[hashtable.hash('first')]).to.be.equal(100)
+    })
+
 })
