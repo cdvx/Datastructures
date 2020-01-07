@@ -27,4 +27,11 @@ describe('Hashtable Interface tests', () => {
         expect(hashtable.hash('wordd')).to.be.equal(124)
     })
 
+    it('Test that get returns value for given key', ()=> {
+        let hashtable = new HashTable()
+        expect(hashtable.get('wordd')).to.be.equal(undefined)
+        hashtable.put("wordd", 'this is the value')
+        expect(hashtable.get('wordd')).to.be.equal('this is the value')
+    })
+
 })

@@ -32,11 +32,24 @@ let HashTable = function(){
         }
       }
 
+    let get = (key) => {
+        const hash_ = hash(key);
+        if (hash_ > -1) {
+          for (let i = hash_; table[i] !== undefined; i++) {
+            if (table[i] === key) {
+              return values[i];
+            }
+          }
+        }
+        return undefined;
+    }
+
     return Object.freeze({
         table,
         put,
         hash,
-        values
+        values,
+        get
     })
 }
 
