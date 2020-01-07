@@ -21,4 +21,10 @@ describe('Hashtable Interface tests', () => {
         expect(hashtable.values[hashtable.hash('first')]).to.be.equal(100)
     })
 
+    it('Test that hash returns int value for string key', ()=> {
+        let hashtable = new HashTable()
+        expect(typeof hashtable.hash('wordd')).to.be.equal('number')
+        expect(hashtable.hash('wordd')).to.be.equal(124)
+    })
+
 })
