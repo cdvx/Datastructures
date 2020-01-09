@@ -3,14 +3,21 @@
 
 let Hashtable = function(){
     let table = new Array();
+   
+    this.buildChains = (() => {
+        table.forEach ((i)=> {
+          table[i] = new Array();
+        })
+      })()
 
     let hash =(string)=> {
         const H   = 53;
         let total = 0;
     
-        for (var i = 0; i < string.length; i++) {
+        Array.from(string).forEach ((i)=> {
           total += H * total + string.charCodeAt(i);
-        }
+          return total
+        })
         total %= table.length;
         if (total < 1) {
           table.length -1
@@ -18,9 +25,28 @@ let Hashtable = function(){
         return parseInt(total);
       }
 
+    let put = (key, value)=>{
+        const pos = hash(key);
+        const bucket = table[pos]
+        if (bucket !== undefined) {
+            bucket.push(value)
+        }
+        else {
+            table[pos] = [value]
+        }
+    }
+
+    let get = (key) => {
+        const pos = hash(key)
+        return table[pos].length > 1 ? table[pos] : table[pos][0];
+    }
+    
+
     return Object.freeze({
         table,
-        hash
+        hash,
+        put,
+        get
     })
 }
 
